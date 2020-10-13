@@ -38,7 +38,7 @@ paths:
               schema:
                 type: array
                 items: 
-                    $ref: '#/Item'
+                    $ref: '#/components/schemasItem'
         default:
           description: Unexpected error
           content:
