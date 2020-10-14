@@ -15,9 +15,6 @@ paths:
         responses:
             '200':
                 description: 'succesfuly added an item to the cart'
-            
-                
-
     get:
       summary: 'retrive the current cart (returns array of items)'
       operationId: getCart
@@ -50,16 +47,34 @@ paths:
      
 components:
   schemas:
-    User:
+    Item:
       type: object
       required:
         - id
         - name
+        - description
+        - price
       properties:
         id:
           type: integer
           format: int64
         name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: double
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
           type: string
         tag:
           type: string
