@@ -76,3 +76,14 @@ components:
           format: int32
         message:
           type: string
+        tag:
+          type: string
+    Responses:
+      400Error:
+        description: Invalid request
+        content:
+          application/json:
+            schema:
+              type: object
+                message:
+                  type: string
