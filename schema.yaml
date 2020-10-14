@@ -63,14 +63,12 @@ components:
           type: string
         tag:
           type: string
-    Error:
-      type: object
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
+    Responses:
+      400Error:
+        description: Invalid request
+        content:
+          application/json:
+            schema:
+              type: object
+                message:
+                  type: string
