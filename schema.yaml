@@ -15,13 +15,13 @@ paths:
         responses:
             '200':
                 description: 'succesfuly added an item to the cart'
-            
-                
+
+
 
     get:
       summary: 'retrive the current cart (returns array of items)'
       operationId: getCart
-      
+
       parameters:
         - name: token
           in: query
@@ -37,7 +37,7 @@ paths:
             application/json:
               schema:
                 type: array
-                items: 
+                items:
                     $ref: '#/components/schemas/Item'
         default:
           description: Unexpected error
@@ -47,9 +47,15 @@ paths:
                 $ref: '#/components/schemas/Error'
         '404':
             description: 'Error: cart not found'
-     
+
 components:
   schemas:
+    Cart:
+      type: array
+      items:
+           $ref: '#/components/schemas/Item'
+
+
     User:
       type: object
       required:
@@ -63,12 +69,14 @@ components:
           type: string
         tag:
           type: string
-    Responses:
-      400Error:
-        description: Invalid request
-        content:
-          application/json:
-            schema:
-              type: object
-                message:
-                  type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
